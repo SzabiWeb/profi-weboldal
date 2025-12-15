@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Főoldal - Modern Weboldal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #333;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    nav {
+      background: #444;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      color: #00acee;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1521791136064-7986c2920216') no-repeat center/cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px black;
+      text-align: center;
+    }
+
+    .section {
+      padding: 40px;
+      text-align: center;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: white;
+      width: 300px;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .portfolio img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s, brightness 0.3s;
+    }
+
+    .portfolio img:hover {
+      transform: scale(1.05);
+      filter: brightness(80%);
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .about {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      background: #eee;
+      border-radius: 12px;
+      flex-direction: column;
+    }
+
+    .about img {
+      border-radius: 50%;
+      width: 150px;
+    }
+
+    .about p {
+      max-width: 500px;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .about-btn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 18px;
+      color: white;
+      background: linear-gradient(90deg, #00acee, #0077b6);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .about-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 12px;
+      width: 80%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .close {
+      float: right;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .hero {
+        font-size: 26px;
+        height: 250px;
+      }
+
+      .cards {
+        flex-direction: column;
+      }
+
+      .portfolio {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+</style>
+</head>
+<body>
+
+<header>
+  Üdvözöllek!<br>
+  <small>Modern, eladható weboldalakat készítek</small>
+</header>
+
+<nav>
+  <a href="index.html">Főoldal</a>
+  <a href="rolam.html">Rólam</a>
+  <a href="szolgaltatasok.html">Szolgáltatások</a>
+  <a href="kapcsolat.html">Kapcsolat</a>
+</nav>
+
+<div class="hero">
+  Egy modern weboldal, amit eladhatsz
+</div>
+
+<div class="section">
+  <h2>Szolgáltatások</h2>
+  <div class="cards">
+
+    <div class="card" onclick="openModal('modal1')">💻 Modern dizájn</div>
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <h2>Modern dizájn</h2>
+        <p>Letisztult, profi megjelenés minden eszközön.</p>
+      </div>
+    </div>
+
+    <div class="card" onclick="openModal('modal2')">📱 Mobilbarát</div>
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+        <h2>Mobilbarát</h2>
+        <p>Tökéletes megjelenés telefonon és tableten is.</p>
+      </div>
+    </div>
+
+    <div class="card" onclick="openModal('modal3')">⚡ Gyors betöltés</div>
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+        <h2>Gyors betöltés</h2>
+        <p>Optimalizált kód a gyors élményért.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <h2>Portfólió</h2>
+  <div class="portfolio">
+    <img src="https://picsum.photos/400?random=1" alt="Projekt 1">
+    <img src="https://picsum.photos/400?random=2" alt="Projekt 2">
+    <img src="https://picsum.photos/400?random=3" alt="Projekt 3">
+    <img src="https://picsum.photos/400?random=4" alt="Projekt 4">
+  </div>
+</div>
+
+<div class="section">
+  <h2>Rólam röviden</h2>
+  <div class="about">
+    <img src="https://picsum.photos/400?random=5" alt="Profilkép">
+    <p>Darcsi Szabolcs vagyok, HTML és CSS alapú modern weboldalakat készítek, amelyek gyorsak és mobilbarátak.</p>
+    <a href="rolam.html"><button class="about-btn">Bővebben rólam</button></a>
+  </div>
+</div>
+
+<footer>
+  © 2025 – Weboldal sablon. Minden jog fenntartva.
+</footer>
+
+<script>
+function openModal(id) {
+  document.getElementById(id).style.display = 'block';
+}
+
+function closeModal(id) {
+  document.getElementById(id).style.display = 'none';
+}
+</script>
+
+</body>
+</html>
